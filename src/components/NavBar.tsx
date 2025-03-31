@@ -1,7 +1,7 @@
 
 import React from "react";
 import { Button } from "@/components/ui/button";
-import { MagicWandIcon, MenuIcon, XIcon } from "lucide-react";
+import { Wand2, MenuIcon, XIcon } from "lucide-react";
 import {
   Sheet,
   SheetContent,
@@ -25,7 +25,7 @@ const NavBar = () => {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <a href="#" className="flex items-center">
-              <MagicWandIcon className="h-8 w-8 text-primary mr-2" />
+              <Wand2 className="h-8 w-8 text-primary mr-2" />
               <span className="text-xl font-bold text-gray-900">Inspired</span>
             </a>
           </div>
@@ -67,7 +67,7 @@ const NavBar = () => {
                   </SheetClose>
                   
                   <div className="flex items-center mb-6">
-                    <MagicWandIcon className="h-8 w-8 text-primary mr-2" />
+                    <Wand2 className="h-8 w-8 text-primary mr-2" />
                     <span className="text-xl font-bold">Inspired</span>
                   </div>
                   

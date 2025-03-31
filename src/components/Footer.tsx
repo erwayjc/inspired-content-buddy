@@ -1,6 +1,6 @@
 
 import React from "react";
-import { MagicWandIcon } from "lucide-react";
+import { Wand2 } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -42,7 +42,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
           <div className="lg:col-span-2">
             <div className="flex items-center mb-4">
-              <MagicWandIcon className="h-8 w-8 text-primary mr-2" />
+              <Wand2 className="h-8 w-8 text-primary mr-2" />
               <span className="text-xl font-bold">Inspired</span>
             </div>
             <p className="text-gray-400 mb-6 max-w-md">
