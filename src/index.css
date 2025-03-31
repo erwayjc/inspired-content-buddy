@@ -92,6 +92,11 @@
 
   body {
     @apply bg-background text-foreground;
+    font-feature-settings: "ss01", "ss02", "cv01", "cv02";
+  }
+  
+  html {
+    scroll-behavior: smooth;
   }
 }
 
@@ -100,7 +105,7 @@
 }
 
 .hero-gradient {
-  background: radial-gradient(circle at 50% 50%, hsl(var(--primary) / 0.2), transparent 70%);
+  background: radial-gradient(circle at 50% 50%, hsl(var(--primary) / 0.1), transparent 70%);
 }
 
 .feature-card {
@@ -121,4 +126,28 @@
 
 .pricing-card-highlight {
   @apply bg-gradient-to-br from-primary/10 to-accent/10 p-8 rounded-xl shadow-lg border border-accent/20 flex flex-col h-full relative overflow-hidden;
+}
+
+/* Added animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.3s ease forwards;
+}
+
+/* Glass effect */
+.glass-effect {
+  @apply backdrop-blur-lg bg-white/80 border border-white/20;
 }

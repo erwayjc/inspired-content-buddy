@@ -1,6 +1,6 @@
 
 import React from "react";
-import { Wand2 } from "lucide-react";
+import { Wand2, Twitter, Facebook, Instagram, Linkedin } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -36,68 +36,84 @@ const Footer = () => {
     },
   ];
 
+  const socialIcons = [
+    { name: "Twitter", icon: <Twitter className="h-4 w-4" />, href: "#" },
+    { name: "Facebook", icon: <Facebook className="h-4 w-4" />, href: "#" },
+    { name: "Instagram", icon: <Instagram className="h-4 w-4" />, href: "#" },
+    { name: "LinkedIn", icon: <Linkedin className="h-4 w-4" />, href: "#" },
+  ];
+
   return (
-    <footer className="bg-gray-900 text-white pt-16 pb-6">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
-          <div className="lg:col-span-2">
-            <div className="flex items-center mb-4">
-              <Wand2 className="h-8 w-8 text-primary mr-2" />
-              <span className="text-xl font-bold">Inspired</span>
+    <footer className="relative overflow-hidden">
+      {/* Top wave decoration */}
+      <div className="absolute top-0 inset-x-0 h-16 bg-gradient-to-b from-white to-gray-50"></div>
+      
+      {/* Main footer section */}
+      <div className="pt-20 pb-10 bg-gradient-to-b from-gray-50 to-gray-900 relative">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
+            <div className="lg:col-span-2">
+              <div className="flex items-center mb-6">
+                <div className="relative">
+                  <div className="absolute -inset-1 bg-gradient-to-r from-primary to-accent rounded-full blur opacity-70"></div>
+                  <div className="relative bg-white rounded-full p-1.5">
+                    <Wand2 className="h-6 w-6 text-primary" />
+                  </div>
+                </div>
+                <span className="text-xl font-bold ml-3 text-white">Inspired</span>
+              </div>
+              <p className="text-gray-300 mb-8 max-w-md">
+                AI-powered content creation that helps marketers save time and 
+                drive better results with proven winning strategies.
+              </p>
+              <div className="flex space-x-4">
+                {socialIcons.map((social) => (
+                  <a
+                    key={social.name}
+                    href={social.href}
+                    className="bg-white/10 hover:bg-white/20 p-2.5 rounded-full transition-colors"
+                    aria-label={social.name}
+                  >
+                    {social.icon}
+                  </a>
+                ))}
+              </div>
             </div>
-            <p className="text-gray-400 mb-6 max-w-md">
-              AI-powered content creation that helps marketers save time and 
-              drive better results with proven winning strategies.
-            </p>
-            <div className="flex space-x-4">
-              {["twitter", "facebook", "instagram", "linkedin"].map((social) => (
-                <a
-                  key={social}
-                  href="#"
-                  className="bg-gray-800 hover:bg-gray-700 text-white p-2 rounded-full transition-colors"
-                >
-                  <span className="sr-only">{social}</span>
-                  <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-2 16h-2v-6h2v6zm-1-6.891c-.607 0-1.1-.496-1.1-1.109 0-.612.492-1.109 1.1-1.109s1.1.497 1.1 1.109c0 .613-.493 1.109-1.1 1.109zm8 6.891h-1.998v-2.861c0-1.881-2.002-1.722-2.002 0v2.861h-2v-6h2v1.093c.872-1.616 4-1.736 4 1.548v3.359z" />
-                  </svg>
-                </a>
-              ))}
-            </div>
+
+            {footerLinks.map((group) => (
+              <div key={group.title}>
+                <h4 className="text-base font-semibold text-white mb-6">{group.title}</h4>
+                <ul className="space-y-4">
+                  {group.links.map((link) => (
+                    <li key={link.name}>
+                      <a
+                        href={link.href}
+                        className="text-gray-300 hover:text-white transition-colors text-sm"
+                      >
+                        {link.name}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
 
-          {footerLinks.map((group) => (
-            <div key={group.title}>
-              <h4 className="text-lg font-semibold mb-4">{group.title}</h4>
-              <ul className="space-y-2">
-                {group.links.map((link) => (
-                  <li key={link.name}>
-                    <a
-                      href={link.href}
-                      className="text-gray-400 hover:text-white transition-colors"
-                    >
-                      {link.name}
-                    </a>
-                  </li>
-                ))}
-              </ul>
+          <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+            <p className="text-gray-400 text-sm">
+              © {currentYear} Inspired. All rights reserved.
+            </p>
+            <div className="flex space-x-8 mt-6 md:mt-0">
+              <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
+                Privacy Policy
+              </a>
+              <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
+                Terms of Service
+              </a>
+              <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
+                Cookie Policy
+              </a>
             </div>
-          ))}
-        </div>
-
-        <div className="border-t border-gray-800 pt-6 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-500 text-sm">
-            © {currentYear} Inspired. All rights reserved.
-          </p>
-          <div className="flex space-x-6 mt-4 md:mt-0">
-            <a href="#" className="text-gray-500 hover:text-gray-300 text-sm">
-              Privacy Policy
-            </a>
-            <a href="#" className="text-gray-500 hover:text-gray-300 text-sm">
-              Terms of Service
-            </a>
-            <a href="#" className="text-gray-500 hover:text-gray-300 text-sm">
-              Cookie Policy
-            </a>
           </div>
         </div>
       </div>
